@@ -23,7 +23,7 @@ This repository contains the official PyTorch implementation of the following pa
     * `pip install -r requirements.txt`
 
 2. **Pre-trained models**
-    * Download and unzip [pretrained weights](https://www.dropbox.com/s/qohhmr9p81u0syi/checkpoints.zip?dl=1) under `[CHECKPOINT_ROOT]`:
+    * Download and unzip [pretrained weights](https://www.dropbox.com/s/lkwo9xg168e650i/checkpoints.zip?dl=1) under `[CHECKPOINT_ROOT]`:
 
         ```
         ├── [CHECKPOINT_ROOT]
@@ -36,20 +36,24 @@ This repository contains the official PyTorch implementation of the following pa
 
 
 ## Testing the network
-1. Place input images and their segment maps should be placed under `./test/input` and `./test/seg_in`, respectively. Place target images and their segment maps under `./test/target` and `./test/seg_tar`, respectively. 
+* To test the network:
 
-2. Test the network:
+  ```bash
+  python test.py --dataroot [test folder path] --checkpoints_dir [CHECKPOINT_ROOT]
+  # e.g., python test.py --dataroot test --checkpoints_dir checkpoints
+  ```
 
-```bash
-python test.py --dataroot [test folder path] --checkpoints_dir [CHECKPOINT_ROOT]
-# e.g., python test.py --dataroot test --checkpoints_dir checkpoints
-```
-    * The test results will be saved under `./results/`.
-    * To turn on *semantic replacement*, add `--is_SR`.
+  > **Note:**
+  >
+  > * Input images and their segment maps should be placed under `./test/input` and `./test/seg_in`, respectively.
+  > * Target images and their segment maps should be placed under `./test/target` and `./test/seg_tar`, respectively. 
+  > * The test results will be saved under `./results/`.
 
-    ```bash
-    python test.py --dataroot [test folder path] --checkpoints_dir [ckpt path] --is_SR
-    ```
+* To turn on *semantic replacement*, add `--is_SR`:
+
+  ```bash
+  python test.py --dataroot [test folder path] --checkpoints_dir [ckpt path] --is_SR
+  ```
 
 ## Citation
 If you find this code useful, please consider citing:
